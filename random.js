@@ -9,7 +9,7 @@ $(function () {
   function showRandomFood() {
     var r = Math.floor(Math.random() * foodList.length);
     currentFood = foodList[r];
-    $("#what").text(currentFood);
+    $("#what").html(currentFood);
     
     // Animation effects
     var rTop = Math.ceil(Math.random() * $(document).height()),
@@ -17,7 +17,7 @@ $(function () {
         rSize = Math.ceil(Math.random() * (37 - 14) + 14);
     
     $("<span class='temp'></span>")
-      .text(currentFood)
+      .html(currentFood)
       .hide()
       .css({
         top: rTop,
@@ -39,6 +39,7 @@ $(function () {
     clickCount++;
     if (clickCount > 5) {
       heading.text("So indecisive? Don't eat then!");
+      $("#start").hide();
       return;
     }
     
@@ -62,10 +63,8 @@ $(function () {
     $("#stop").hide();
     $("#start").show();
     heading.text("Decision made!");
-    
-    // Ensure the last food remains visible
     if (currentFood) {
-      $("#what").text(currentFood);
+      $("#what").html(currentFood);
     }
   });
 
