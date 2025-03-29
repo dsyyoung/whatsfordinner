@@ -8,8 +8,8 @@ $(function () {
   // Function to display a random food
   function showRandomFood() {
     var r = Math.floor(Math.random() * foodList.length);
-    currentFood = foodList[r-1];
-    $("#what").html(currentFood);
+    currentFood = foodList[r];
+    $("#what").text(currentFood);
     
     // Animation effects
     var rTop = Math.ceil(Math.random() * $(document).height()),
@@ -17,7 +17,7 @@ $(function () {
         rSize = Math.ceil(Math.random() * (37 - 14) + 14);
     
     $("<span class='temp'></span>")
-      .html(currentFood)
+      .text(currentFood)
       .hide()
       .css({
         top: rTop,
@@ -63,10 +63,10 @@ $(function () {
     $("#start").show();
     $("#question").text("Decision made!");
     if (currentFood) {
-      $("#what").html(currentFood);
+      $("#what").text(currentFood);
     } else {
       // If somehow currentFood is empty, display a message
-      $("#what").html("No food selected.");
+      $("#what").text("No food selected.");
     }
   });
 
