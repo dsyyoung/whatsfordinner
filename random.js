@@ -46,7 +46,7 @@ $(function () {
     run = 1;
     $(this).hide();
     $("#stop").show();
-    heading.text("What's for dinner?");
+    $("#question").text("What's for dinner?");
     
     showRandomFood();
     
@@ -61,7 +61,7 @@ $(function () {
     run = 0;
     $("#stop").hide();
     $("#start").show();
-    heading.text("Decision made!");
+    $("#question").text("Decision made!");
     if (currentFood) {
       $("#what").html(currentFood);
     } else {
