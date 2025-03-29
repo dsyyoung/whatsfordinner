@@ -7,8 +7,8 @@ $(function () {
 
   // Function to display a random food
   function showRandomFood() {
-    var r = Math.floor(Math.random() * foodList.length),
-      currentFood = foodList[r-1];
+    var r = Math.floor(Math.random() * foodList.length);
+    currentFood = foodList[r-1];
     $("#what").html(currentFood);
     
     // Animation effects
@@ -56,7 +56,7 @@ $(function () {
 
   $("#stop").click(function() {
     if (!run) return; // Prevent stopping when not running
-    
+    showRandomFood();
     clearInterval(timer);
     run = 0;
     $("#stop").hide();
