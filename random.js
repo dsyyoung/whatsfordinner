@@ -7,8 +7,8 @@ $(function () {
 
   // Function to display a random food
   function showRandomFood() {
-    var r = Math.floor(Math.random() * foodList.length);
-    currentFood = foodList[r];
+    var r = Math.floor(Math.random() * foodList.length),
+      currentFood = foodList[r-1];
     $("#what").html(currentFood);
     
     // Animation effects
@@ -37,7 +37,7 @@ $(function () {
     if (run) return; // Prevent multiple starts
     
     clickCount++;
-    if (clickCount > 5) {
+    if (clickCount > 3) {
       heading.text("So indecisive? Don't eat then!");
       $("#start").hide();
       return;
@@ -48,7 +48,6 @@ $(function () {
     $("#stop").show();
     heading.text("What's for dinner?");
     
-    // Show first food immediately
     showRandomFood();
     
     // Continue cycling foods
@@ -65,6 +64,9 @@ $(function () {
     heading.text("Decision made!");
     if (currentFood) {
       $("#what").html(currentFood);
+    } else {
+      // If somehow currentFood is empty, display a message
+      $("#what").html("No food selected.");
     }
   });
 
