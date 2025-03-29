@@ -11,6 +11,9 @@ body {
   justify-content: center;
   align-items: center;
   transition: background-color 0.5s ease;
+  overflow-x: hidden;
+  width: 100%;
+  min-width: 100%;
 }
 
 #wrapper {
@@ -96,6 +99,7 @@ input[type="button"]:active {
   white-space: nowrap;
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+  will-change: transform
 }
 
 /* Decorative elements */

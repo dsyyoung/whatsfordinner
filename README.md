@@ -21,7 +21,7 @@ This project is built using simple yet powerful web technologies:
 
 ## How to View
 
-To experience "What's For Dinner (Singapore ver.)", simply visit [https://dsyyoung.github.io/whatsfordinner.github.io-main/](https://dsyyoung.github.io/whatsfordinner.github.io-main/) from any modern web browser.
+To experience "What's For Dinner (Singapore ver.)", simply visit [https://dsyyoung.github.io/whatsfordinner/](https://dsyyoung.github.io/whatsfordinner/)
 
 ## Contributions
 

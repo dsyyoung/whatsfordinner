@@ -1,20 +1,37 @@
 $(function () {
   var run = 0,
     heading = $("h1"),
-    timer;
+    timer,
+    clickCount = 0; // Track clicks
+
+  // Reset to initial state
+  function resetUI() {
+    heading.text("What's for dinner?");
+    $("#what").text("");
+    $("#start").val("start").show();
+    $("#stop").hide();
+  }
 
   $("#start").click(function () {
+    clickCount++;
+    
+    // Hide start button after 5 clicks
+    if (clickCount >= 5) {
+      $(this).hide();
+      heading.text("So indecisive? Don't eat then!");
+      return;
+    }
+
     if (!run) {
-      heading.html(heading.html().replace("What's for dinner?", "Decision made!"));
-      $(this).val("stop");
-      $("#stop").show(); // Show the stop button
+      heading.text("What's for dinner?");
+      $(this).val("start"); // Keep as "start"
+      $("#stop").show();
       
       timer = setInterval(function () {
-        // Get random food from the foodList array
         var r = Math.floor(Math.random() * foodList.length),
             food = foodList[r];
         
-        $("#what").html(food);
+        $("#what").text(food);
         
         // Animation effects
         var rTop = Math.ceil(Math.random() * $(document).height()),
@@ -22,7 +39,7 @@ $(function () {
             rSize = Math.ceil(Math.random() * (37 - 14) + 14);
         
         $("<span class='temp'></span>")
-          .html(food)
+          .text(food)
           .hide()
           .css({
             top: rTop,
@@ -38,20 +55,16 @@ $(function () {
           });
       }, 50);
       run = 1;
-    } else {
-      clearInterval(timer);
-      $(this).val("start");
-      $("#stop").hide(); // Hide the stop button
-      run = 0;
     }
   });
 
-  // Stop button functionality
   $("#stop").click(function() {
     clearInterval(timer);
-    $("#start").val("start");
+    heading.text("Decision made!");
+    $("#start").val("start").show();
     $(this).hide();
     run = 0;
+    clickCount = 0; // Reset counter
   });
 
   document.onkeydown = function enter(e) {
